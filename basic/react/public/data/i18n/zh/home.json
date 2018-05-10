@@ -1,0 +1,23 @@
+{
+  "growth": {
+    "title": "个人成长经历",
+    "seq": 1
+  },
+  "works": {
+    "title": "工作经历",
+    "seq": 11
+  },
+  "profile": {
+    "type": "img",
+    "src": "/images/avatart.jpeg",
+    "seq": 21
+  },
+  "skills": {
+    "title": "技能",
+    "seq": 31
+  },
+  "projects": {
+    "title": "项目",
+    "seq": 41
+  }
+}
