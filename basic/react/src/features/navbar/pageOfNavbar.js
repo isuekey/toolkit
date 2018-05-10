@@ -15,6 +15,11 @@ const handlerMapToProps = (dispatch) => {
 }
 
 class pageOfNavbar extends React.Component {
+  
+  componentWillMount() {
+    console.log(this.props);
+  }
+  
   render() {
     const { match } = this.props;
     return (
