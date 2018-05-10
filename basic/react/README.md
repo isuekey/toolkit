@@ -2442,3 +2442,9 @@ In the future, we might start automatically compiling incompatible third-party m
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+
+## 文件结构说明 ##
+
+## 引用包说明 ##
+  * 这里应用了babel-plugin-transform-decorators-legacy, 但是javascript decorator并不是规范，至少在ECMA-268-e8中没有涉及，所以可以用，但是不建议使用。
+

@@ -1,7 +1,7 @@
 
 
-export const getHomeData = (url, params) => {
-  return fetch('/data/home.json').then((res) => {
+export const getHomeData = (url='/data/home.json', params) => {
+  return fetch(url).then((res) => {
     try {
       return res.json();
     } catch (e) {
@@ -13,8 +13,8 @@ export const getHomeData = (url, params) => {
   });
 };
 
-export const getCourseData = (url, params) => {
-  return fetch(url || '/data/course.json').then((res) => {
+export const getCourseData = (url = '/data/course.json', params) => {
+  return fetch(url).then((res) => {
     try {
       return res.json();
     } catch (e) {

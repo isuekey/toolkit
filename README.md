@@ -5,4 +5,4 @@
     * react：react react-router-dom react-redux bootstrap
   * webpack
 
-## 基础模版 ##
+## basic:react ##
