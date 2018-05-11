@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import * as features from './features';
 import { getHomeData } from './service';
+import * as appActions from './action';
 
 // import logo from './logo.svg';
 import './App.css';
@@ -16,26 +17,37 @@ import './App.css';
 
 const mapStoreStateToProps = (state) => {
   return {
-
+    appState: state.appReducer
   }
 };
 
 const mapHandlerToProps = (dispatch) => {
   return {
     getHomeData: () => {
-      getHomeData().then((resJson) => {
-        console.log(resJson);
+      dispatch({
+        type: appActions.appInitDataLoadingStatus,
+        payload: 1
       });
-      console.log('dispatch:',dispatch);
+      getHomeData().then((resJson) => {
+        dispatch({
+          type: appActions.appInitDataLoaded,
+          payload: resJson
+        })
+      }).catch((err) => {
+        dispatch({
+          type: appActions.appInitDataLoadingStatus,
+          payload: -1
+        })
+      });
     }
   }
 }
 class app extends Component {
   componentWillMount(){
-    console.log(this.props);
     this.props.getHomeData();
   }
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <Router>

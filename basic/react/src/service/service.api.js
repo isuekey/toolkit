@@ -1,6 +1,6 @@
 
 
-export const getHomeData = (url='/data/home.json', params) => {
+export const getHomeData = (url='/data/i18n/zh/home.json', params) => {
   return fetch(url).then((res) => {
     try {
       return res.json();
