@@ -7,7 +7,7 @@ function guid() {
 
 const homeJson = {
   growth: {
-    title:"个人成长经历",
+    title:"个人经历",
     seq: 1
   },
   works: {
@@ -20,11 +20,11 @@ const homeJson = {
     seq: 21
   },
   skills: {
-    title: "技能",
+    title: "技能能力",
     seq: 31
   },
   projects: {
-    title: "项目",
+    title: "项目经验",
     seq: 41
   }
   

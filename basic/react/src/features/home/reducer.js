@@ -1,15 +1,25 @@
-
+import * as homeAction from './action';
 
 const intialState = {
-  sections:[]
+  featuresHomeLoadingStatus:0,
+  featuresHomeLoaded:{}
 }
 
 
-export function todoApp(state = intialState, action) {
-  const {type, payload} = action;
-  switch (type) {
+function featureHomeReducer(state= intialState, action) {
+  const { type, payload } = action;
+  switch(type) {
+    case homeAction.featuresHomeLoadingStatus:
+    return {
+      ...state,
+      featuresHomeLoadingStatus: state.featuresHomeLoadingStatus + payload
+    };
+    case homeAction.featuresHomeLoaded:
+    return {
+      ...state,
+      featuresHomeLoaded: payload
+    }
     default:
     return state;
   }
-};
-
+}

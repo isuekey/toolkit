@@ -3,8 +3,9 @@ import { HashRouter as Router, Route, Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as features from './features';
-import { getHomeData } from './service';
+import { AppApiServiceManager } from './service';
 import * as appActions from './action';
+import * as components from './components';
 
 // import logo from './logo.svg';
 import './App.css';
@@ -16,29 +17,17 @@ import './App.css';
  */
 
 const mapStoreStateToProps = (state) => {
+  console.log('appState changed');
   return {
     appState: state.appReducer
   }
 };
 
 const mapHandlerToProps = (dispatch) => {
+  const manager = new AppApiServiceManager(dispatch);
   return {
     getHomeData: () => {
-      dispatch({
-        type: appActions.appInitDataLoadingStatus,
-        payload: 1
-      });
-      getHomeData().then((resJson) => {
-        dispatch({
-          type: appActions.appInitDataLoaded,
-          payload: resJson
-        })
-      }).catch((err) => {
-        dispatch({
-          type: appActions.appInitDataLoadingStatus,
-          payload: -1
-        })
-      });
+      manager.getHomeData(appActions.appInitDataLoadingStatus, appActions.appInitDataLoaded);
     }
   }
 }
@@ -47,9 +36,10 @@ class app extends Component {
     this.props.getHomeData();
   }
   render() {
-    console.log(this.props);
+    console.log('appState', this.props.appState);
+    const { appState } = this.props;
     return (
-      <div className="App">
+      <components.LoadingView className="App" loadingStatus={appState.appInitDataLoadingStatus} >
         <Router>
           <div className="app-container">
             <Route exact path="/" component={features.PageOfNavbar} />
@@ -62,7 +52,7 @@ class app extends Component {
             </Switch>
           </div>
         </Router>
-      </div>
+      </components.LoadingView>
     );
   }
 }
