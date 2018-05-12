@@ -14,15 +14,19 @@ const storeMapToProps = (state) => {
   }
 };
 
-const handlerMapToProps = (dispatch) => {
+const handlerMapToProps = (dispatch, props) => {
+  const { history } = props;
   return {
+    handlerGotoTargetPage: (targeUrl) => {
+      history.go(targeUrl);
+    }
   }
 }
 
 class pageOfNavbar extends React.Component {
   render() {
     const { appState } = this.props;
-    console.log(appState);
+    console.log(this.props);
     return (
       <div className="pp-navbar-container">
         {Object.keys(appState.appInitData).map((key) => {

@@ -7,25 +7,30 @@ function guid() {
 
 const homeJson = {
   growth: {
-    title:"个人经历",
-    seq: 1
+    title:"首页",
+    seq: 1,
+    link:"/home"
   },
   works: {
     title: "工作经历",
-    seq: 11
+    seq: 11,
+    link: "/experience"
   },
   profile: {
     type: "img",
     src: "/images/avatart.jpeg",
-    seq: 21
+    seq: 21,
+    link:"/growth"
   },
   skills: {
     title: "技能能力",
-    seq: 31
+    seq: 31,
+    link:"/skills"
   },
   projects: {
     title: "项目经验",
-    seq: 41
+    seq: 41,
+    link:"/projects"
   }
   
 };
