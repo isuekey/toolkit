@@ -10,22 +10,29 @@ const storeMapToProps = (state) => {
   return {
     appState: state.appReducer
   }
-  return {
-  }
 };
 
 const handlerMapToProps = (dispatch, props) => {
-  const { history } = props;
+  const { history, match } = props;
   return {
-    handlerGotoTargetPage: (targeUrl) => {
-      history.go(targeUrl);
+    handlerGotoTargetPage: (navbarItem) => {
+      // console.log('next url:' + navbarItem.link);
+      const thePageIsCurrentItem = match.url.startsWith(navbarItem.link);
+      if (!thePageIsCurrentItem) {
+        history.push(navbarItem.link);
+      }
     }
   }
 }
 
 class pageOfNavbar extends React.Component {
+  clickHandlerGenerator = (itemData) => {
+    return () => {
+      this.props.handlerGotoTargetPage(itemData);
+    };
+  }
   render() {
-    const { appState } = this.props;
+    const { appState, match } = this.props;
     console.log(this.props);
     return (
       <div className="pp-navbar-container">
@@ -34,19 +41,23 @@ class pageOfNavbar extends React.Component {
         }).sort((a, b) => {
           return a.seq - b.seq;
         }).map((itemData, index) => {
+          let clickHandler = this.clickHandlerGenerator(itemData);
           switch (itemData.type) {
             case 'img':
             return (
               <componentsOfNavbar.ComponentOfAvatarInNavbar 
                 navbarItemData={itemData} 
                 key={itemData.src}
+                onClick={clickHandler}
               />
             );
             default:
             return (
-              <div key={itemData.title}>
-                {itemData.title}
-              </div>
+              <componentsOfNavbar.ComponentOfTabInNavbar
+                navbarItemData={itemData}
+                key={itemData.title}
+                onClick={clickHandler}
+              />
             );
           }
         })}

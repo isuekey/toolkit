@@ -127,6 +127,11 @@ We are always open to [your feedback](https://github.com/facebookincubator/creat
 ## Folder Structure
 
 After creation, your project should look like this:
+action.js redux:action定义
+reducer.js redux:reducer定义
+page*.js container components 定义
+compoents*.js  representation components 定义，当前目录的page用到的compoents应该都从这里暴露.
+index.js page*.js的对外暴露接口简化
 
 ```
 my-app/
@@ -143,6 +148,19 @@ my-app/
     index.css
     index.js
     logo.svg
+    features/
+      home/
+        action.js
+        componentsOfHome.js
+        cssOfHome.css
+        index.js
+        pageOfHome.js
+        reducer.js
+      navbar/
+        index.js
+        pageOfNavbar.js
+        componentsOfNavbar.js
+        cssOfNavbar.css
 ```
 
 For the project to build, **these files must exist with exact filenames**:

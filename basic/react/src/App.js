@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch} from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as features from './features';
@@ -32,7 +32,7 @@ const mapHandlerToProps = (dispatch) => {
   }
 }
 class app extends Component {
-  componentWillMount(){
+  componentWillMount() {
     this.props.getHomeData();
   }
   render() {
@@ -44,12 +44,14 @@ class app extends Component {
           <div className="app-container">
             <Route exact path="/" component={features.PageOfNavbar} />
             <Route path="/:target" component={features.PageOfNavbar} />
-            <Switch>
-              <Route exact path="/growth" component={features.PageOfGrowth} />
-              <Route path="/growth/:info" component={features.PageOfGrowth} />
-              <Route exact path="/" component={features.PageOfHome} />
-              <Route path="/:unknown" component={features.PageOfHome} />
-            </Switch>
+            <div className="app-content">
+              <Switch>
+                <Route exact path="/growth" component={features.PageOfGrowth} />
+                <Route path="/growth/:info" component={features.PageOfGrowth} />
+                <Route exact path="/" component={features.PageOfHome} />
+                <Route path="/:unknown" component={features.PageOfHome} />
+              </Switch>
+            </div>
           </div>
         </Router>
       </components.LoadingView>

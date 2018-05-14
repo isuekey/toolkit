@@ -1,23 +1,28 @@
 {
   "growth": {
-    "title": "个人成长经历",
-    "seq": 1
+    "title": "首   页",
+    "seq": 1,
+    "link": "/home"
   },
   "works": {
     "title": "工作经历",
-    "seq": 11
+    "seq": 11,
+    "link": "/experience"
   },
   "profile": {
     "type": "img",
-    "src": "/images/avatart.jpeg",
-    "seq": 21
+    "src": "/images/avatar.jpeg",
+    "seq": 21,
+    "link": "/growth"
   },
   "skills": {
-    "title": "技能",
-    "seq": 31
+    "title": "技能能力",
+    "seq": 31,
+    "link": "/skills"
   },
   "projects": {
-    "title": "项目",
-    "seq": 41
+    "title": "项目经验",
+    "seq": 41,
+    "link": "/projects"
   }
 }

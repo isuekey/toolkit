@@ -6,7 +6,7 @@ const intialState = {
 }
 
 
-function featureHomeReducer(state= intialState, action) {
+export function featureHomeReducer(state= intialState, action) {
   const { type, payload } = action;
   switch(type) {
     case homeAction.featuresHomeLoadingStatus:

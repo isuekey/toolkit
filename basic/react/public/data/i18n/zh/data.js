@@ -7,7 +7,7 @@ function guid() {
 
 const homeJson = {
   growth: {
-    title:"首页",
+    title:"首  页",
     seq: 1,
     link:"/home"
   },
@@ -18,7 +18,7 @@ const homeJson = {
   },
   profile: {
     type: "img",
-    src: "/images/avatart.jpeg",
+    src: "/images/avatar.jpeg",
     seq: 21,
     link:"/growth"
   },

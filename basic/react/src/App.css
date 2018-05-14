@@ -1,5 +1,23 @@
 .App {
   text-align: center;
+  height: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content > div {
+  position: relative;
+  flex: 1;
 }
 
 .App-logo {

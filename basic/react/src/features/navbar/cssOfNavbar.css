@@ -1,4 +1,41 @@
 
 .pp-navbar-container {
   margin: 0;
+  display: flex;
+}
+
+.pp-navbar-container > div {
+  flex:1;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+.pp-navbar-container > div.avatar {
+  display: block;
+  position: relative;
+}
+
+.pp-navbar-container > div > div {
+  width: 100%;
+}
+.pp-navbar-container > div.avatar > div {
+  display: block;
+  border: none;
+}
+
+.pp-navbar-container > div > div > p {
+  padding: 4px 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: aqua;
+}
+
+.pp-navbar-container img.avatar{
+  width: 12vw;
+  height: 12vw;
+  max-width: 12vh;
+  max-height: 12vh;
+  object-fit: fill;
+  border-radius: 50%;
 }
