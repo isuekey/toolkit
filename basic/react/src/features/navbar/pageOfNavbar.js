@@ -6,7 +6,7 @@ import * as componentsOfNavbar from './componentsOfNavbar';
 import './cssOfNavbar.css';
 
 const storeMapToProps = (state) => {
-  console.log('navState changed');
+  // console.log('navState changed');
   return {
     appState: state.appReducer
   }
@@ -32,8 +32,7 @@ class pageOfNavbar extends React.Component {
     };
   }
   render() {
-    const { appState, match } = this.props;
-    console.log(this.props);
+    const { appState } = this.props;
     return (
       <div className="pp-navbar-container">
         {Object.keys(appState.appInitData).map((key) => {

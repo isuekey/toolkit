@@ -3,7 +3,6 @@ import React from 'react';
 
 
 export class ComponentOfAvatarInNavbar extends React.PureComponent {
-  
   render() {
     const { navbarItemData={}, onClick } = this.props;
     return (
@@ -28,3 +27,4 @@ export class ComponentOfTabInNavbar extends React.PureComponent {
     );
   }
 }
+

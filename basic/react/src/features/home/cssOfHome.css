@@ -15,4 +15,17 @@
 .home-footer-container {
   height: 12vw;
   max-height: 12vh;
+  display: flex;
+}
+.home-footer-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.home-body-container .summary {
+  padding:  0;
+}
+
+.home-body-container .profile {
+  padding:  0;
 }

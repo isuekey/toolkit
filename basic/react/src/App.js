@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as features from './features';
@@ -36,7 +36,6 @@ class app extends Component {
     this.props.getHomeData();
   }
   render() {
-    console.log('appState', this.props.appState);
     const { appState } = this.props;
     return (
       <components.LoadingView className="App" loadingStatus={appState.appInitDataLoadingStatus} >
@@ -48,8 +47,9 @@ class app extends Component {
               <Switch>
                 <Route exact path="/growth" component={features.PageOfGrowth} />
                 <Route path="/growth/:info" component={features.PageOfGrowth} />
-                <Route exact path="/" component={features.PageOfHome} />
-                <Route path="/:unknown" component={features.PageOfHome} />
+                <Redirect exact from="/" to="/home" />
+                <Route exact path="/home" component={features.PageOfHome} />
+                <Route path="/home/:anchor" component={features.PageOfHome} />
               </Switch>
             </div>
           </div>

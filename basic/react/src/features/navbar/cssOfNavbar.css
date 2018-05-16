@@ -29,6 +29,7 @@
   border-width: 1px;
   border-style: solid;
   border-color: aqua;
+  margin: 0;
 }
 
 .pp-navbar-container img.avatar{

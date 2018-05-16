@@ -14,8 +14,8 @@ export class AppApiServiceManager {
       console.log(e);
       return JSON.stringify({error:'json错误'});
     });    
-  }
-  getHomeData = ( statusKey, targetKey, url='/data/i18n/zh/home.json', params,) => {
+  };
+  getHomeData = ( statusKey, targetKey, url='/data/i18n/zh/home.json', params) => {
     this.dispatch({
       type: statusKey,
       payload: 1
@@ -28,6 +28,24 @@ export class AppApiServiceManager {
       this.dispatch({
         type: targetKey,
         payload: resJson
+      });
+    }).catch((err) => {
+      this.dispatch({
+        type: statusKey,
+        payload: -1
+      });
+    });
+  };
+  getHomeDetailData = (statusKey, targetKey, url='/data/i18n/zh/home.detail.json', params) => {
+    this.dispatch({type: statusKey, payload: 1});
+    this.baseGet(url, params).then((resJson) => {
+      this.dispatch({
+        type: targetKey,
+        payload: resJson
+      });
+      this.dispatch({
+        type: statusKey,
+        payload: -1
       });
     }).catch((err) => {
       this.dispatch({

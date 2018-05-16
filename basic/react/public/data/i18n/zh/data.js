@@ -32,8 +32,24 @@ const homeJson = {
     seq: 41,
     link:"/projects"
   }
-  
 };
+
+const homeDetailJson = {
+  profile: {
+    seq: 1,
+    data: {
+      whoAmI:[
+        '刘翰儒。',
+        '一个程序员。',
+        '一个骑行爱好者。'
+      ]
+    }
+  },
+  summary: {
+    seq: 11,
+    data: {}
+  }
+}
 
 
 const fs = require('fs');
@@ -51,3 +67,5 @@ function writeJsonFile(filepath, jsonData, callback = ()=>{}) {
 
 
 writeJsonFile('./home.json', homeJson);
+writeJsonFile('./home.detail.json', homeDetailJson);
+
